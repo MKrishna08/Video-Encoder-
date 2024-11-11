@@ -1,4 +1,3 @@
-# image_processor.py
 
 import os
 import cv2
