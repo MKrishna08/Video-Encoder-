@@ -1,0 +1,78 @@
+I am still working on the main.py and trying to get the view to work. One big issue is the size of the json file being created after encoding the pictures.
+
+
+commands:
+
+ENCODING: py main.py --command encode --input_folder ./path_to_images_folder --output.mp4/mp3 file --metadata metadata.json/whatever_name.json --width 480 --height 640
+PLAY VIDEO: py main.py --command view --output output.mp4 --metadata metadata.json --framerate 24
+
+
+
+# Video Encoder and Decoder
+
+A Python-based video encoder and decoder that compresses and decompresses video frames using macroblocks, motion estimation, DCT, quantization, and Huffman coding.
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Directory Structure](#directory-structure)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Encoding](#encoding)
+  - [Decoding](#decoding)
+- [Testing](#testing)
+- [Dependencies](#dependencies)
+- [License](#license)
+
+## Introduction
+
+This project implements a basic video encoder and decoder that processes video frames by dividing them into macroblocks, estimating motion vectors, applying Discrete Cosine Transform (DCT) and quantization for compression, and utilizing Huffman coding for efficient encoding. The decoder reconstructs the video by reversing these steps.
+
+## Features
+
+- **Macroblock Processing:** Splits frames into 16x16 pixel blocks for efficient processing.
+- **Motion Estimation:** Estimates motion vectors between frames to exploit temporal redundancy.
+- **DCT and Quantization:** Transforms spatial data into frequency components and reduces precision for compression.
+- **Huffman Coding:** Applies entropy coding to further compress the bitstrings.
+- **Metadata Management:** Stores essential information about the encoded video for accurate decoding.
+- **Unit Testing:** Includes tests to verify the integrity of encoding and decoding processes.
+
+## Directory Structure
+
+Video-Encoder-Decoder/ 
+├── README.md 
+├── requirements.txt 
+├── main.py 
+├── video_encoder.py 
+├── frame_encoder.py 
+├── motion_estimator.py 
+├── macroblock_processor.py 
+├── image_processor.py 
+├── videowriter.py 
+├── huffman_coder.py 
+├── compressed_data.bin 
+├── metadata.json 
+└── input_frames/ 
+    ├── frame1.png 
+    ├── frame2.png 
+└── ...
+
+
+- **README.md**: Project documentation.
+- **requirements.txt**: Python dependencies.
+- **main.py**: Entry point for encoding and decoding operations.
+- **video_encoder.py**: Core module for video encoding and decoding.
+- **frame_encoder.py**: Encodes and decodes individual macroblocks.
+- **motion_estimator.py**: Estimates motion vectors between frames.
+- **macroblock_processor.py**: Handles splitting and reconstructing frames into/from macroblocks.
+- **image_processor.py**: Loads and processes input image frames.
+- **videowriter.py**: Manages writing frames to video files.
+- **huffman_coder.py**: Implements Huffman coding for compression.
+- **compressed_data.bin**: Binary file storing compressed video data.
+- **metadata.json**: JSON file storing metadata about the encoded video. - generated during encoding, not a dependency. Should be stored in mp3 file.
+- **input_frames/**: Directory containing input image frames to be encoded.
+
+## Installation
+
+run "pip install -r requirements.txt" to install the required dependencies.
